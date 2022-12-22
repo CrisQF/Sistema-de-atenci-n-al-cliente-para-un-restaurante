@@ -1,9 +1,11 @@
 
-// const usuario = {
-//   nombre: "Beto",
-//   edad: 30,
-//   deuda: 0
-// }
+const usuario = {
+  nombre: "Jaime",
+  edad: 30,
+  deuda: 0
+}
+
+const pedido = []
 
 // let pedido = []
 // let costoPedido = 0
@@ -11,25 +13,21 @@
 // Lista todos los productos del menú en un formato amigable
 
 const mostrarMenu = () => {
-  productos.forEach(producto => console.log(`${producto.nombre} -$${producto.costo}`))
+  console.log(`CÓDIGO - NOMBRE PRODUCTO - COSTO`) 
+  for(let producto of productos) {
+    console.log(`${producto.codigo} - ${producto.nombre} - $${producto.costo}`)
+  }
 }
+const pedirProducto = cod => {
+  if (!cod) return "Ingrese un código valido"
 
-//   console.log(`CÓDIGO - NOMBRE PRODUCTO - COSTO`)
-//   for(let producto of productos) {
-//     console.log(`${producto.codigo} - ${producto.nombre} - $${producto.costo}`)
-//   }
-// }
+const productoEncontrado = productos.find(producto => producto.codigo === cod)
+if (!productoEncontrado) return "El producto no existe"
 
-// const pedirProducto = cod => {
-//   if (!cod) return "Ingrese un código valido"
-
-//   const productoEncontrado = productos.find(producto => producto.codigo === cod)
-//   if (!productoEncontrado) return "El producto no existe"
-
-//   pedido.push(productoEncontrado)
-//   console.log("El producto ha sido agregado a su pedido. Su pedido es:")
-//   return verPedido()
-// }
+  pedido.push(productoEncontrado)
+  console.log("El producto ha sido agregado a su pedido. Su pedido es:")
+  return pedido
+}
 
 // const verPedido = () => pedido
 
